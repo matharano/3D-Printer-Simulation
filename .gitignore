@@ -1,0 +1,9 @@
+.python-version
+*venv*
+*__pycache__
+*__runtime_stats__*
+*.log
+data/
+
+# Mac storage system
+*.DS_Store

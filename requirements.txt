@@ -1,0 +1,7 @@
+bpy
+mathutils
+memory_profiler
+numpy
+open3d
+scipy
+tqdm
