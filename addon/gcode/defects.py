@@ -7,7 +7,7 @@
 #   e. Geometric deviation
 from abc import ABC, abstractmethod
 
-from .parser import Command, Gcode
+from .parser import GcodeCommand, Gcode
 
 class Defect(ABC):
     def __init__(self, incidence_ratio:float, intensity:float) -> None:
@@ -23,11 +23,11 @@ class Defect(ABC):
         self.intensity = intensity
     
     @abstractmethod
-    def apply(self, command:Command) -> None:
+    def apply(self, command:GcodeCommand) -> None:
         pass
 
 class OverExtrusion(Defect):
-    def apply(self, command:Command) -> None:
+    def apply(self, command:GcodeCommand) -> None:
         if not (type(command) == float or type(command) == float): return
         last_coords = command.get_last_position()
         original_extrusion = command.e - last_coords['e']
